@@ -1,22 +1,32 @@
+---
+import { withBase } from "../utils/url";
+
+const homeUrl = withBase("");
+const aboutUrl = withBase("#about");
+const experienceUrl = withBase("#experience");
+const projectsUrl = withBase("#projects");
+const contactUrl = withBase("#contact");
+---
+
 <header class="navbar">
   <div class="container navbar-inner">
 
-    <a href="/" class="brand">
+    <a href={homeUrl} class="brand">
       Akash<span>.</span>
     </a>
 
     <nav class="nav-links">
-      <a href="/#about">About</a>
+      <a href={aboutUrl}>About</a>
 
-      <a href="/#experience">
+      <a href={experienceUrl}>
         Experience
       </a>
 
-      <a href="/#projects">
+      <a href={projectsUrl}>
         Projects
       </a>
 
-      <a href="/#contact">
+      <a href={contactUrl}>
         Contact
       </a>
     </nav>

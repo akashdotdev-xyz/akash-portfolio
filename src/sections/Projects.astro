@@ -1,21 +1,16 @@
 ---
-import {
-  getCollection,
-} from "astro:content";
+import { getCollection } from "astro:content";
+import ProjectCard from "../components/ProjectCard.astro";
+import { withBase } from "../utils/url";
 
-import ProjectCard
-  from "../components/ProjectCard.astro";
-
-const projects =
-  await getCollection("projects");
+const projects = await getCollection("projects");
 
 const featuredProjects = projects
   .filter((project) => project.data.featured)
-  .sort(
-    (a, b) =>
-      a.data.order - b.data.order
-  )
+  .sort((a, b) => a.data.order - b.data.order)
   .slice(0, 3);
+
+const projectsUrl = withBase("projects/");
 ---
 
 <section
@@ -61,14 +56,9 @@ const featuredProjects = projects
 
     <div class="projects-footer">
 
-      <a href="/projects">
-
+      <a href={projectsUrl}>
         View all projects
-
-        <span aria-hidden="true">
-          →
-        </span>
-
+        <span aria-hidden="true">→</span>
       </a>
 
     </div>

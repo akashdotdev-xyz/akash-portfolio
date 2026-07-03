@@ -14,6 +14,8 @@ import BaseLayout
 import Navbar
   from "../../components/Navbar.astro";
 
+import { withBase } from "../../utils/url";
+
 export async function getStaticPaths() {
   const projects =
     await getCollection("projects");
@@ -37,6 +39,8 @@ const { project } = Astro.props;
 
 const { Content } =
   await render(project);
+
+const projectsUrl = withBase("projects/");
 ---
 
 <BaseLayout
@@ -50,7 +54,7 @@ const { Content } =
     <div class="project-container">
 
       <a
-        href="/#projects"
+        href={projectsUrl}
         class="back-link"
       >
         ← Back to projects

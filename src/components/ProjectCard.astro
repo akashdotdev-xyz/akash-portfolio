@@ -4,6 +4,7 @@ import type {
 } from "astro:content";
 
 import TechTag from "./TechTag.astro";
+import { withBase } from "../utils/url";
 
 interface Props {
   project: CollectionEntry<"projects">;
@@ -18,6 +19,10 @@ const {
   githubUrl,
   liveUrl,
 } = project.data;
+
+const projectUrl = withBase(
+  `projects/${project.id}/`
+);
 ---
 
 <article class="project-card">
@@ -47,7 +52,7 @@ const {
   <div class="project-footer">
 
     <a
-      href={`/projects/${project.id}`}
+      href={projectUrl}
       class="explore-link"
     >
       Explore Project
