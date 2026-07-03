@@ -1,10 +1,5 @@
 ---
 import { profile } from "../content/profile";
-import { withBase } from "../utils/url";
-
-const resumeUrl = profile.links.resume
-  ? withBase(profile.links.resume)
-  : undefined;
 ---
 
 <section id="about" class="hero">
@@ -36,14 +31,14 @@ const resumeUrl = profile.links.resume
         </a>
 
         {
-            resumeUrl && (
+            profile.links.resume && (
                 <a
-                href={resumeUrl}
+                href={profile.links.resume}
                 class="button button-secondary"
                 target="_blank"
                 rel="noopener noreferrer"
                 >
-                Download Resume
+                View Resume
                 </a>
             )
         }
