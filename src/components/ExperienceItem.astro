@@ -212,34 +212,38 @@ const featuredHighlights = experience.highlights
   }
 
   .highlight-header {
-    display: flex;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
 
-    align-items: flex-start;
-    justify-content: space-between;
+  gap: 12px;
 
-    gap: 12px;
-  }
+  min-width: 0;
+}
 
-  h4 {
-    margin: 0;
+.highlight-header h4 {
+  min-width: 0;
 
-    font-size: 0.88rem;
-    letter-spacing: -0.01em;
-  }
+  overflow-wrap: anywhere;
+}
 
-  .impact {
-    flex-shrink: 0;
+.impact {
+  flex-shrink: 0;
 
-    padding: 4px 7px;
+  max-width: 50%;
 
-    border-radius: 5px;
+  padding: 4px 7px;
 
-    background: var(--accent-soft);
-    color: var(--accent);
+  border-radius: 5px;
 
-    font-size: 0.65rem;
-    font-weight: 650;
-  }
+  background: var(--accent-soft);
+  color: var(--accent);
+
+  font-size: 0.65rem;
+  font-weight: 650;
+
+  text-align: right;
+}
 
   .highlight p {
     margin: 8px 0 0;
@@ -260,29 +264,47 @@ const featuredHighlights = experience.highlights
   }
 
   @media (max-width: 760px) {
+  .experience-item {
+    grid-template-columns: minmax(0, 1fr);
 
-    .experience-item {
-      grid-template-columns: 1fr;
-
-      gap: 8px;
-    }
-
-    .timeline {
-      display: none;
-    }
-
-    .highlights {
-      grid-template-columns: 1fr;
-    }
-
-    .content {
-      padding-bottom: 48px;
-    }
-
-    .experience-header {
-      flex-direction: column;
-
-      gap: 4px;
-    }
+    gap: 8px;
   }
+
+  .period {
+    margin-bottom: 4px;
+  }
+
+  .timeline {
+    display: none;
+  }
+
+  .content {
+    min-width: 0;
+
+    padding-bottom: 48px;
+  }
+
+  .experience-header {
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 4px;
+  }
+
+  .highlights {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .highlight-header {
+    flex-direction: column;
+
+    gap: 8px;
+  }
+
+  .impact {
+    max-width: 100%;
+
+    text-align: left;
+  }
+}
 </style>

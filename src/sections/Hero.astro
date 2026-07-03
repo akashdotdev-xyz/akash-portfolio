@@ -231,22 +231,59 @@ import { profile } from "../content/profile";
   }
 
   @media (max-width: 800px) {
-    .hero {
-      padding: 64px 0;
-    }
-
-    .hero-inner {
-      grid-template-columns: 1fr;
-
-      gap: 48px;
-    }
-
-    .hero-visual {
-      justify-content: flex-start;
-    }
-
-    .actions {
-      flex-wrap: wrap;
-    }
+  .hero {
+    padding: 56px 0 48px;
   }
+
+  .hero-inner {
+    grid-template-columns: minmax(0, 1fr);
+
+    gap: 40px;
+  }
+
+  .hero-content {
+    min-width: 0;
+  }
+
+  h1 {
+    font-size: clamp(2.6rem, 12vw, 4rem);
+
+    overflow-wrap: break-word;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+
+  .hero-visual {
+    justify-content: stretch;
+  }
+
+  .visual-card {
+    max-width: none;
+  }
+
+  .actions {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding-top: 40px;
+  }
+
+  h1 {
+    font-size: 2.65rem;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .button {
+    width: 100%;
+  }
+}
 </style>
