@@ -100,8 +100,8 @@ const resumeUrl = resume
     display: grid;
 
     grid-template-columns:
-      1.3fr
-      0.7fr;
+      minmax(0, 1.3fr)
+      minmax(240px, 0.7fr);
 
     align-items: center;
 
@@ -226,23 +226,40 @@ const resumeUrl = resume
 
   @media (max-width: 800px) {
     .contact-card {
-      grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
 
-      gap: 40px;
+        gap: 36px;
 
-      padding: 40px;
+        padding: 40px;
     }
-  }
+
+    .contact-content,
+    .contact-actions {
+        min-width: 0;
+    }
+    }
 
   @media (max-width: 520px) {
     .contact-section {
-      padding: 24px 0 64px;
+        padding: 24px 0 64px;
     }
 
     .contact-card {
-      padding: 28px 24px;
+        padding: 28px 20px;
 
-      border-radius: 14px;
+        border-radius: 14px;
     }
-  }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .primary-action {
+        width: 100%;
+    }
+
+    .social-links {
+        gap: 14px 18px;
+    }
+}
 </style>
