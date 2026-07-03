@@ -1,5 +1,10 @@
 ---
 import { profile } from "../content/profile";
+
+const resumeUrl = profile.links.resume
+  ? `${import.meta.env.BASE_URL}${profile.links.resume}`
+  : undefined;
+
 ---
 
 <section id="about" class="hero">
@@ -30,12 +35,18 @@ import { profile } from "../content/profile";
           View My Work
         </a>
 
-        <a
-          href={profile.links.resume}
-          class="button button-secondary"
-        >
-          Download Résumé
-        </a>
+        {
+            resumeUrl && (
+                <a
+                href={resumeUrl}
+                class="button button-secondary"
+                target="_blank"
+                rel="noopener noreferrer"
+                >
+                Download Résumé
+                </a>
+            )
+        }
 
       </div>
 

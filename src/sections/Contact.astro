@@ -7,6 +7,10 @@ const {
   github,
   resume,
 } = profile.links;
+
+const resumeUrl = resume
+  ? `${import.meta.env.BASE_URL}${resume}`
+  : undefined;
 ---
 
 <section
@@ -79,15 +83,15 @@ const {
           }
 
           {
-            resume && (
-              <a
-                href={resume}
+            resumeUrl && (
+                <a
+                href={resumeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-              >
+                >
                 Résumé
                 <span aria-hidden="true">↗</span>
-              </a>
+                </a>
             )
           }
 

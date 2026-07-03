@@ -17,7 +17,7 @@ export const profile: Profile = {
     github: "https://github.com/akashdotdev-xyz",
     linkedin: "https://www.linkedin.com/in/akash-kumar-iiit/",
     email: "meakash0102@gmail.com",
-    resume: "/resume/akash-kumar-resume.pdf",
+    resume: "resume/akash-kumar-resume.pdf",
   },
 };
 
