@@ -1,170 +1,170 @@
 import type { Experience } from "./types";
 
 export const experiences: Experience[] = [
-  {
-    company: "Nykaa",
+    {
+        company: "Nykaa",
 
-    role: "Senior Software Engineer",
+        role: "Senior Software Engineer",
 
-    period: "Present",
+        period: "Present",
 
-    summary:
-      "Building scalable backend platforms for multi-tenant commerce systems across India and Middle East markets.",
+        summary:
+            "Building scalable backend platforms for multi-tenant commerce systems across India and Middle East markets.",
 
-    technologies: [
-      "Go",
-      "Java",
-      "AWS",
-      "Kafka",
-      "PostgreSQL",
-      "Microservices",
-    ],
+        technologies: [
+            "Go",
+            "Java",
+            "AWS",
+            "Kafka",
+            "PostgreSQL",
+            "Microservices",
+        ],
 
-    highlights: [
-      {
-        title: "Post Order Platform",
+        highlights: [
+            {
+                title: "Post Order Platform",
 
-        description:
-          "Built and scaled a multi-tenant post-order platform integrating order management, warehouse, and logistics systems.",
+                description:
+                    "Designed and built a multi-tenant order orchestration platform processing 500K+ orders/day across India and Middle East markets, coordinating post-order workflows between OMS, warehouse management, and logistics systems through a hybrid synchronous and event-driven architecture",
 
-        impact: "Processes 500K+ orders daily",
+                impact: "Processes 500K+ orders daily",
 
-        featured: true,
-      },
+                featured: true,
+            },
 
-      {
-        title: "Multi-tenant Loyalty Platform",
+            {
+                title: "Multi-tenant Loyalty Platform",
 
-        description:
-          "Designed reusable domain abstractions for omnichannel earn and redeem workflows.",
+                description:
+                    "Designed reusable domain abstractions for omnichannel earn and redeem workflows.",
 
-        impact: "Reduced integration time by 80%",
+                impact: "Reduced integration time by 80%",
 
-        featured: true,
-      },
+                featured: true,
+            },
 
-      {
-        title: "Central Tenant Management",
+            {
+                title: "Central Tenant Management",
 
-        description:
-          "Built a centralized source of truth for tenant metadata, configuration, mappings, and feature flags.",
+                description:
+                    "Built a centralized source of truth for tenant metadata, configuration, mappings, and feature flags.",
 
-        featured: false,
-      },
+                featured: false,
+            },
 
-      {
-        title: "AWS Region Migration",
+            {
+                title: "AWS Region Migration",
 
-        description:
-          "Migrated backend services and dependencies across AWS regions while improving deployment pipelines.",
+                description:
+                    "Migrated backend services and dependencies across AWS regions while improving deployment pipelines.",
 
-        impact: "15+ services migrated",
+                impact: "15+ services migrated",
 
-        featured: false,
-      },
-    ],
-  },
+                featured: false,
+            },
+        ],
+    },
 
-  {
-    company: "INDmoney",
+    {
+        company: "INDmoney",
 
-    role: "Software Engineer",
+        role: "Software Engineer",
 
-    period: "Previous",
+        period: "Previous",
 
-    summary:
-      "Worked on investment platform workflows including exchange onboarding, financial reports, and customer assistance systems.",
+        summary:
+            "Worked on investment platform workflows including exchange onboarding, financial reports, and customer assistance systems.",
 
-    technologies: [
-      "Go",
-      "Java",
-      "PostgreSQL",
-      "Redis",
-      "Docker",
-    ],
+        technologies: [
+            "Go",
+            "Java",
+            "PostgreSQL",
+            "Redis",
+            "Docker",
+        ],
 
-    highlights: [
-      {
-        title: "Exchange Onboarding",
+        highlights: [
+            {
+                title: "Exchange Onboarding",
 
-        description:
-          "Revamped onboarding workflows coordinating account creation across multiple downstream systems.",
+                description:
+                    "Revamped onboarding workflows coordinating account creation across multiple downstream systems.",
 
-        impact: "Reduced onboarding time by 50%",
+                impact: "Reduced onboarding time by 50%",
 
-        featured: true,
-      },
+                featured: true,
+            },
 
-      {
-        title: "Reports Platform",
+            {
+                title: "Reports Platform",
 
-        description:
-          "Built dividend and CMR reporting capabilities for investment users.",
+                description:
+                    "Built dividend and CMR reporting capabilities for investment users.",
 
-        featured: true,
-      },
+                featured: true,
+            },
 
-      {
-        title: "Help Centre",
+            {
+                title: "Help Centre",
 
-        description:
-          "Developed dynamic nudges and broadcast communication capabilities.",
+                description:
+                    "Developed dynamic nudges and broadcast communication capabilities.",
 
-        featured: false,
-      },
-    ],
-  },
+                featured: false,
+            },
+        ],
+    },
 
-  {
-    company: "Infra.Market",
+    {
+        company: "Infra.Market",
 
-    role: "Software Engineer",
+        role: "Software Engineer",
 
-    period: "Previous",
+        period: "Previous",
 
-    summary:
-      "Built backend systems for enterprise operations, ticket management, ERP workflows, and shared observability infrastructure.",
+        summary:
+            "Built backend systems for enterprise operations, ticket management, ERP workflows, and shared observability infrastructure.",
 
-    technologies: [
-      "Go",
-      "Java",
-      "Kafka",
-      "PostgreSQL",
-      "Microservices",
-      "OpenTelemetry",
-    ],
+        technologies: [
+            "Go",
+            "Java",
+            "Kafka",
+            "PostgreSQL",
+            "Microservices",
+            "OpenTelemetry",
+        ],
 
-    highlights: [
-      {
-        title: "Ticket Management Platform",
+        highlights: [
+            {
+                title: "Ticket Management Platform",
 
-        description:
-          "Built an event-driven ticket management system for handling operational workflows across teams.",
+                description:
+                    "Built an event-driven ticket management system for handling operational workflows across teams.",
 
-        impact: "Handles 1,000+ tickets daily",
+                impact: "Handles 1,000+ tickets daily",
 
-        featured: true,
-      },
+                featured: true,
+            },
 
-      {
-        title: "Observability Platform",
+            {
+                title: "Observability Platform",
 
-        description:
-          "Built reusable observability capabilities for standardized telemetry and monitoring across backend services.",
+                description:
+                    "Built reusable observability capabilities for standardized telemetry and monitoring across backend services.",
 
-        impact: "Adopted by 35+ microservices",
+                impact: "Adopted by 35+ microservices",
 
-        featured: true,
-      },
+                featured: true,
+            },
 
-      {
-        title: "ERP Platform",
+            {
+                title: "ERP Platform",
 
-        description:
-          "Worked on backend workflows spanning procurement, inventory, supply chain, and finance operations.",
+                description:
+                    "Worked on backend workflows spanning procurement, inventory, supply chain, and finance operations.",
 
-        featured: false,
-      },
-    ],
-  },
+                featured: false,
+            },
+        ],
+    },
 ];
