@@ -1,0 +1,288 @@
+---
+import type { Experience } from "../content/types";
+
+import TechTag from "./TechTag.astro";
+
+interface Props {
+  experience: Experience;
+}
+
+const { experience } = Astro.props;
+
+const featuredHighlights = experience.highlights
+  .filter((highlight) => highlight.featured)
+  .slice(0, 2);
+---
+
+<article class="experience-item">
+
+  <div class="period">
+    {experience.period}
+  </div>
+
+  <div class="timeline">
+    <span class="dot"></span>
+    <span class="line"></span>
+  </div>
+
+  <div class="content">
+
+    <header class="experience-header">
+
+      <h3>
+        {experience.company}
+      </h3>
+
+      <span class="role">
+        {experience.role}
+      </span>
+
+    </header>
+
+    <p class="summary">
+      {experience.summary}
+    </p>
+
+    <div class="highlights">
+
+      {
+        featuredHighlights.map((highlight) => (
+
+          <div class="highlight">
+
+            <div class="highlight-header">
+
+              <h4>
+                {highlight.title}
+              </h4>
+
+              {
+                highlight.impact && (
+
+                  <span class="impact">
+                    {highlight.impact}
+                  </span>
+
+                )
+              }
+
+            </div>
+
+            <p>
+              {highlight.description}
+            </p>
+
+          </div>
+
+        ))
+      }
+
+    </div>
+
+    <div class="technologies">
+
+      {
+        experience.technologies.map((technology) => (
+
+          <TechTag name={technology} />
+
+        ))
+      }
+
+    </div>
+
+  </div>
+
+</article>
+
+<style>
+  .experience-item {
+    display: grid;
+
+    grid-template-columns:
+      130px
+      24px
+      1fr;
+
+    gap: 20px;
+  }
+
+  .period {
+    padding-top: 4px;
+
+    color: var(--text-secondary);
+
+    font-size: 0.82rem;
+    font-weight: 500;
+  }
+
+  .timeline {
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+  }
+
+  .dot {
+    position: relative;
+    z-index: 2;
+
+    width: 11px;
+    height: 11px;
+
+    margin-top: 5px;
+
+    border: 3px solid var(--accent);
+    border-radius: 50%;
+
+    background: white;
+  }
+
+  .line {
+    position: absolute;
+
+    top: 16px;
+    bottom: -48px;
+
+    width: 1px;
+
+    background: var(--border);
+  }
+
+  .experience-item:last-child .line {
+    display: none;
+  }
+
+  .content {
+    padding-bottom: 56px;
+  }
+
+  .experience-header {
+    display: flex;
+    align-items: baseline;
+
+    gap: 14px;
+  }
+
+  h3 {
+    margin: 0;
+
+    color: var(--accent);
+
+    font-size: 1.1rem;
+    letter-spacing: -0.02em;
+  }
+
+  .role {
+    color: var(--text-primary);
+
+    font-size: 0.85rem;
+    font-weight: 650;
+  }
+
+  .summary {
+    max-width: 700px;
+
+    margin: 10px 0 0;
+
+    color: var(--text-secondary);
+
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+
+  .highlights {
+    display: grid;
+
+    grid-template-columns:
+      repeat(2, 1fr);
+
+    gap: 12px;
+
+    margin-top: 24px;
+  }
+
+  .highlight {
+    padding: 18px;
+
+    border: 1px solid var(--border);
+    border-radius: 10px;
+
+    background: white;
+  }
+
+  .highlight-header {
+    display: flex;
+
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 12px;
+  }
+
+  h4 {
+    margin: 0;
+
+    font-size: 0.88rem;
+    letter-spacing: -0.01em;
+  }
+
+  .impact {
+    flex-shrink: 0;
+
+    padding: 4px 7px;
+
+    border-radius: 5px;
+
+    background: var(--accent-soft);
+    color: var(--accent);
+
+    font-size: 0.65rem;
+    font-weight: 650;
+  }
+
+  .highlight p {
+    margin: 8px 0 0;
+
+    color: var(--text-secondary);
+
+    font-size: 0.8rem;
+    line-height: 1.55;
+  }
+
+  .technologies {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 7px;
+
+    margin-top: 18px;
+  }
+
+  @media (max-width: 760px) {
+
+    .experience-item {
+      grid-template-columns: 1fr;
+
+      gap: 8px;
+    }
+
+    .timeline {
+      display: none;
+    }
+
+    .highlights {
+      grid-template-columns: 1fr;
+    }
+
+    .content {
+      padding-bottom: 48px;
+    }
+
+    .experience-header {
+      flex-direction: column;
+
+      gap: 4px;
+    }
+  }
+</style>

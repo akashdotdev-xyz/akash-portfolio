@@ -1,0 +1,245 @@
+---
+import {
+  getCollection,
+  render,
+} from "astro:content";
+
+import type {
+  CollectionEntry,
+} from "astro:content";
+
+import BaseLayout
+  from "../../layouts/BaseLayout.astro";
+
+import Navbar
+  from "../../components/Navbar.astro";
+
+export async function getStaticPaths() {
+  const projects =
+    await getCollection("projects");
+
+  return projects.map((project) => ({
+    params: {
+      slug: project.id,
+    },
+
+    props: {
+      project,
+    },
+  }));
+}
+
+interface Props {
+  project: CollectionEntry<"projects">;
+}
+
+const { project } = Astro.props;
+
+const { Content } =
+  await render(project);
+---
+
+<BaseLayout
+  title={`${project.data.title} — Akash Kumar`}
+>
+
+  <Navbar />
+
+  <main class="project-page">
+
+    <div class="project-container">
+
+      <a
+        href="/#projects"
+        class="back-link"
+      >
+        ← Back to projects
+      </a>
+
+      <header class="project-header">
+
+        <span class="eyebrow">
+          FEATURED PROJECT
+        </span>
+
+        <h1>
+          {project.data.title}
+        </h1>
+
+        <p class="description">
+          {project.data.description}
+        </p>
+
+        <div class="tech-list">
+
+          {
+            project.data.technologies.map(
+              (technology) => (
+                <span>{technology}</span>
+              )
+            )
+          }
+
+        </div>
+
+      </header>
+
+      <article class="project-content">
+        <Content />
+      </article>
+
+    </div>
+
+  </main>
+
+</BaseLayout>
+
+<style>
+  .project-page {
+    padding: 64px 0 120px;
+  }
+
+  .project-container {
+    width:
+      min(780px, calc(100% - 48px));
+
+    margin-inline: auto;
+  }
+
+  .back-link {
+    color: var(--text-secondary);
+
+    font-size: 0.85rem;
+    font-weight: 550;
+  }
+
+  .back-link:hover {
+    color: var(--accent);
+  }
+
+  .project-header {
+    padding: 64px 0 56px;
+
+    border-bottom:
+      1px solid var(--border);
+  }
+
+  .eyebrow {
+    color: var(--accent);
+
+    font-size: 0.7rem;
+    font-weight: 700;
+
+    letter-spacing: 0.12em;
+  }
+
+  h1 {
+    margin: 14px 0 0;
+
+    font-size:
+      clamp(2.5rem, 6vw, 4.25rem);
+
+    line-height: 1.05;
+
+    letter-spacing: -0.055em;
+  }
+
+  .description {
+    max-width: 650px;
+
+    margin: 24px 0 0;
+
+    color: var(--text-secondary);
+
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+
+  .tech-list {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-top: 28px;
+  }
+
+  .tech-list span {
+    padding: 6px 10px;
+
+    border: 1px solid var(--border);
+    border-radius: 6px;
+
+    background: var(--surface);
+    color: var(--text-secondary);
+
+    font-size: 0.75rem;
+    font-weight: 550;
+  }
+
+  .project-content {
+    padding-top: 48px;
+  }
+
+  .project-content :global(h2) {
+    margin: 56px 0 16px;
+
+    color: var(--text-primary);
+
+    font-size: 1.65rem;
+
+    letter-spacing: -0.035em;
+  }
+
+  .project-content :global(h2:first-child) {
+    margin-top: 0;
+  }
+
+  .project-content :global(h3) {
+    margin: 36px 0 12px;
+
+    color: var(--text-primary);
+
+    font-size: 1.15rem;
+  }
+
+  .project-content :global(p) {
+    margin: 0 0 20px;
+
+    color: var(--text-secondary);
+
+    line-height: 1.8;
+  }
+
+  .project-content :global(ul) {
+    margin: 0 0 24px;
+
+    padding-left: 24px;
+
+    color: var(--text-secondary);
+
+    line-height: 1.8;
+  }
+
+  .project-content :global(li) {
+    margin-bottom: 6px;
+  }
+
+  .project-content :global(strong) {
+    color: var(--text-primary);
+  }
+
+  @media (max-width: 640px) {
+    .project-page {
+      padding: 40px 0 80px;
+    }
+
+    .project-container {
+      width: calc(100% - 32px);
+    }
+
+    .project-header {
+      padding: 48px 0 40px;
+    }
+  }
+</style>

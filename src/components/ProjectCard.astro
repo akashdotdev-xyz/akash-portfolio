@@ -1,0 +1,206 @@
+---
+import type {
+  CollectionEntry,
+} from "astro:content";
+
+import TechTag from "./TechTag.astro";
+
+interface Props {
+  project: CollectionEntry<"projects">;
+}
+
+const { project } = Astro.props;
+
+const {
+  title,
+  description,
+  technologies,
+  githubUrl,
+  liveUrl,
+} = project.data;
+---
+
+<article class="project-card">
+
+  <div class="project-content">
+
+    <h3>
+      {title}
+    </h3>
+
+    <p>
+      {description}
+    </p>
+
+  </div>
+
+  <div class="technologies">
+
+    {
+      technologies.map((technology) => (
+        <TechTag name={technology} />
+      ))
+    }
+
+  </div>
+
+  <div class="project-footer">
+
+    <a
+      href={`/projects/${project.id}`}
+      class="explore-link"
+    >
+      Explore Project
+
+      <span aria-hidden="true">
+        →
+      </span>
+    </a>
+
+    <div class="external-links">
+
+      {
+        githubUrl && (
+          <a
+            href={githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>
+        )
+      }
+
+      {
+        liveUrl && (
+          <a
+            href={liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Live
+          </a>
+        )
+      }
+
+    </div>
+
+  </div>
+
+</article>
+
+<style>
+  .project-card {
+    display: flex;
+    flex-direction: column;
+
+    padding: 24px;
+
+    border: 1px solid var(--border);
+    border-radius: 14px;
+
+    background: white;
+
+    transition:
+      transform 180ms ease,
+      box-shadow 180ms ease,
+      border-color 180ms ease;
+  }
+
+  .project-card:hover {
+    transform: translateY(-3px);
+
+    border-color: #d1d5db;
+
+    box-shadow:
+      0 16px 40px rgba(15, 23, 42, 0.07);
+  }
+
+  .project-content h3 {
+    max-width: 290px;
+
+    margin: 0;
+
+    font-size: 1.4rem;
+    line-height: 1.25;
+
+    letter-spacing: -0.035em;
+  }
+
+  .project-content p {
+    margin: 18px 0 0;
+
+    color: var(--text-secondary);
+
+    font-size: 0.88rem;
+    line-height: 1.7;
+  }
+
+  .technologies {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 6px;
+
+    margin-top: 28px;
+  }
+
+  .project-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 16px;
+
+    margin-top: auto;
+    padding-top: 32px;
+  }
+
+  .explore-link {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 8px;
+
+    color: var(--accent);
+
+    font-size: 0.84rem;
+    font-weight: 650;
+  }
+
+  .explore-link span {
+    transition: transform 150ms ease;
+  }
+
+  .project-card:hover
+  .explore-link span {
+    transform: translateX(4px);
+  }
+
+  .external-links {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+  }
+
+  .external-links a {
+    color: var(--text-secondary);
+
+    font-size: 0.78rem;
+    font-weight: 550;
+
+    transition: color 150ms ease;
+  }
+
+  .external-links a:hover {
+    color: var(--text-primary);
+  }
+
+  @media (max-width: 640px) {
+    .project-card {
+      min-height: 280px;
+      padding: 24px;
+    }
+  }
+</style>

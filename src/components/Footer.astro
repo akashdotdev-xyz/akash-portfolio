@@ -1,0 +1,119 @@
+---
+import { profile } from "../content/profile";
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="footer">
+
+  <div class="container footer-inner">
+
+    <div class="footer-brand">
+      <a href="/" class="brand">
+        Akash<span>.</span>
+      </a>
+
+      <p>
+        Backend Engineer · Distributed Systems · Go
+      </p>
+    </div>
+
+    <div class="footer-meta">
+      <span>
+        © {currentYear} {profile.name}
+      </span>
+
+      <a href="#">
+        Back to top ↑
+      </a>
+    </div>
+
+  </div>
+
+</footer>
+
+<style>
+  .footer {
+    border-top: 1px solid var(--border);
+
+    background: white;
+  }
+
+  .footer-inner {
+    min-height: 120px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 40px;
+  }
+
+  .footer-brand {
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+  }
+
+  .brand {
+    font-size: 1.15rem;
+    font-weight: 750;
+
+    letter-spacing: -0.04em;
+  }
+
+  .brand span {
+    color: var(--accent);
+  }
+
+  .footer-brand p {
+    margin: 0;
+
+    color: var(--text-secondary);
+
+    font-size: 0.78rem;
+  }
+
+  .footer-meta {
+    display: flex;
+    align-items: center;
+
+    gap: 24px;
+
+    color: var(--text-secondary);
+
+    font-size: 0.75rem;
+  }
+
+  .footer-meta a {
+    transition: color 150ms ease;
+  }
+
+  .footer-meta a:hover {
+    color: var(--accent);
+  }
+
+  @media (max-width: 700px) {
+    .footer-inner {
+      align-items: flex-start;
+      flex-direction: column;
+
+      padding-top: 32px;
+      padding-bottom: 32px;
+    }
+
+    .footer-brand {
+      align-items: flex-start;
+      flex-direction: column;
+
+      gap: 8px;
+    }
+
+    .footer-meta {
+      width: 100%;
+
+      justify-content: space-between;
+    }
+  }
+</style>

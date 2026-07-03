@@ -1,0 +1,170 @@
+---
+import {
+  getCollection,
+} from "astro:content";
+
+import BaseLayout
+  from "../../layouts/BaseLayout.astro";
+
+import Navbar
+  from "../../components/Navbar.astro";
+
+import ProjectCard
+  from "../../components/ProjectCard.astro";
+
+const projects =
+  await getCollection("projects");
+
+const sortedProjects = projects.sort(
+  (a, b) =>
+    a.data.order - b.data.order
+);
+---
+
+<BaseLayout
+  title="Projects — Akash Kumar"
+>
+
+  <Navbar />
+
+  <main class="projects-page">
+
+    <div class="container">
+
+      <header class="page-header">
+
+        <a
+          href="/#projects"
+          class="back-link"
+        >
+          ← Back to home
+        </a>
+
+        <span class="eyebrow">
+          PROJECTS
+        </span>
+
+        <h1>
+          Projects & Experiments
+        </h1>
+
+        <p>
+          Things I've built to understand systems,
+          explore product ideas, and learn by building.
+        </p>
+
+      </header>
+
+      <section class="projects-grid">
+
+        {
+          sortedProjects.map((project) => (
+
+            <ProjectCard project={project} />
+
+          ))
+        }
+
+      </section>
+
+    </div>
+
+  </main>
+
+</BaseLayout>
+
+<style>
+  .projects-page {
+    padding: 64px 0 120px;
+  }
+
+  .page-header {
+    max-width: 720px;
+
+    margin-bottom: 64px;
+  }
+
+  .back-link {
+    display: inline-block;
+
+    margin-bottom: 56px;
+
+    color: var(--text-secondary);
+
+    font-size: 0.85rem;
+    font-weight: 550;
+  }
+
+  .back-link:hover {
+    color: var(--accent);
+  }
+
+  .eyebrow {
+    display: block;
+
+    color: var(--accent);
+
+    font-size: 0.7rem;
+    font-weight: 700;
+
+    letter-spacing: 0.12em;
+  }
+
+  h1 {
+    margin: 12px 0 0;
+
+    font-size:
+      clamp(2.75rem, 6vw, 4.5rem);
+
+    line-height: 1.05;
+
+    letter-spacing: -0.055em;
+  }
+
+  .page-header p {
+    max-width: 600px;
+
+    margin: 24px 0 0;
+
+    color: var(--text-secondary);
+
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+
+  .projects-grid {
+    display: grid;
+
+    grid-template-columns:
+      repeat(3, 1fr);
+
+    gap: 18px;
+  }
+
+  @media (max-width: 900px) {
+
+    .projects-grid {
+      grid-template-columns:
+        repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+
+    .projects-page {
+      padding: 40px 0 80px;
+    }
+
+    .page-header {
+      margin-bottom: 48px;
+    }
+
+    .back-link {
+      margin-bottom: 40px;
+    }
+
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

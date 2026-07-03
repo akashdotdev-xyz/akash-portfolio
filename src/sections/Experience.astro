@@ -1,0 +1,120 @@
+---
+import {
+  experiences,
+} from "../content/experience";
+
+import ExperienceItem
+  from "../components/ExperienceItem.astro";
+---
+
+<section
+  id="experience"
+  class="experience-section"
+>
+
+  <div class="container">
+
+    <div class="section-header">
+
+      <div>
+        <span class="eyebrow">
+          EXPERIENCE
+        </span>
+
+        <h2>
+          Professional Experience
+        </h2>
+      </div>
+
+      <p>
+        Building backend platforms,
+        distributed systems, and cloud
+        infrastructure.
+      </p>
+
+    </div>
+
+    <div class="experience-list">
+
+      {
+        experiences.map((experience) => (
+          <ExperienceItem
+            experience={experience}
+          />
+        ))
+      }
+
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+  .experience-section {
+    padding: 88px 0;
+
+    background: var(--surface);
+
+    border-top:
+      1px solid var(--border);
+
+    border-bottom:
+      1px solid var(--border);
+  }
+
+  .section-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 40px;
+
+    margin-bottom: 56px;
+  }
+
+  .eyebrow {
+    color: var(--accent);
+
+    font-size: 0.7rem;
+    font-weight: 700;
+
+    letter-spacing: 0.12em;
+  }
+
+  h2 {
+    margin: 8px 0 0;
+
+    font-size: 2rem;
+
+    letter-spacing: -0.04em;
+  }
+
+  .section-header p {
+    max-width: 400px;
+
+    margin: 0;
+
+    color: var(--text-secondary);
+
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .experience-list {
+    max-width: 1000px;
+  }
+
+  @media (max-width: 760px) {
+    .experience-section {
+      padding: 64px 0;
+    }
+
+    .section-header {
+      align-items: flex-start;
+      flex-direction: column;
+
+      margin-bottom: 40px;
+    }
+  }
+</style>

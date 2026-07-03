@@ -1,0 +1,114 @@
+---
+import {
+  impactMetrics,
+} from "../content/profile";
+---
+
+<section class="impact">
+
+  <div class="container">
+
+    <h2>
+      Impact at a Glance
+    </h2>
+
+    <div class="metrics-grid">
+
+      {
+        impactMetrics.map((metric) => (
+          <article class="metric-card">
+
+            <div class="metric-value">
+              {metric.value}
+            </div>
+
+            <div class="metric-label">
+              {metric.label}
+            </div>
+
+            {
+              metric.description && (
+                <p>
+                  {metric.description}
+                </p>
+              )
+            }
+
+          </article>
+        ))
+      }
+
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+  .impact {
+    padding: 24px 0 80px;
+  }
+
+  h2 {
+    margin: 0 0 24px;
+
+    font-size: 1.25rem;
+    letter-spacing: -0.025em;
+  }
+
+  .metrics-grid {
+    display: grid;
+
+    grid-template-columns:
+      repeat(4, 1fr);
+
+    gap: 16px;
+  }
+
+  .metric-card {
+    padding: 24px;
+
+    border: 1px solid var(--border);
+    border-radius: 12px;
+
+    background: var(--surface);
+  }
+
+  .metric-value {
+    color: var(--text-primary);
+
+    font-size: 1.75rem;
+    font-weight: 750;
+
+    letter-spacing: -0.04em;
+  }
+
+  .metric-label {
+    margin-top: 8px;
+
+    font-size: 0.9rem;
+    font-weight: 650;
+  }
+
+  .metric-card p {
+    margin: 6px 0 0;
+
+    color: var(--text-secondary);
+
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 900px) {
+    .metrics-grid {
+      grid-template-columns:
+        repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 520px) {
+    .metrics-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

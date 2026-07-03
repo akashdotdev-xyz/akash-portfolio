@@ -1,0 +1,188 @@
+---
+import {
+  getCollection,
+} from "astro:content";
+
+import ProjectCard
+  from "../components/ProjectCard.astro";
+
+const projects =
+  await getCollection("projects");
+
+const featuredProjects = projects
+  .filter((project) => project.data.featured)
+  .sort(
+    (a, b) =>
+      a.data.order - b.data.order
+  )
+  .slice(0, 3);
+---
+
+<section
+  id="projects"
+  class="projects-section"
+>
+
+  <div class="container">
+
+    <div class="section-header">
+
+      <div>
+
+        <span class="eyebrow">
+          SELECTED WORK
+        </span>
+
+        <h2>
+          Projects & Experiments
+        </h2>
+
+      </div>
+
+      <p>
+        Systems and products I build to explore
+        distributed systems, storage architecture,
+        and applied AI.
+      </p>
+
+    </div>
+
+    <div class="projects-grid">
+
+      {
+        featuredProjects.map((project) => (
+
+          <ProjectCard project={project} />
+
+        ))
+      }
+
+    </div>
+
+    <div class="projects-footer">
+
+      <a href="/projects">
+
+        View all projects
+
+        <span aria-hidden="true">
+          →
+        </span>
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+  .projects-section {
+    padding: 96px 0;
+  }
+
+  .section-header {
+    display: flex;
+
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 40px;
+
+    margin-bottom: 48px;
+  }
+
+  .eyebrow {
+    color: var(--accent);
+
+    font-size: 0.7rem;
+    font-weight: 700;
+
+    letter-spacing: 0.12em;
+  }
+
+  h2 {
+    margin: 8px 0 0;
+
+    font-size: 2rem;
+
+    letter-spacing: -0.04em;
+  }
+
+  .section-header p {
+    max-width: 430px;
+
+    margin: 0;
+
+    color: var(--text-secondary);
+
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .projects-grid {
+    display: grid;
+
+    grid-template-columns:
+      repeat(3, 1fr);
+
+    gap: 18px;
+  }
+
+  .projects-footer {
+    display: flex;
+    justify-content: center;
+
+    margin-top: 40px;
+  }
+
+  .projects-footer a {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 11px 16px;
+
+    border: 1px solid var(--border);
+    border-radius: 7px;
+
+    color: var(--text-primary);
+
+    font-size: 0.85rem;
+    font-weight: 600;
+
+    transition:
+      background 150ms ease,
+      border-color 150ms ease;
+  }
+
+  .projects-footer a:hover {
+    background: var(--surface);
+    border-color: #d1d5db;
+  }
+
+  .projects-footer span {
+    color: var(--accent);
+  }
+
+  @media (max-width: 900px) {
+
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .section-header {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+
+  @media (max-width: 640px) {
+
+    .projects-section {
+      padding: 64px 0;
+    }
+  }
+</style>
