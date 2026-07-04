@@ -1,170 +1,81 @@
 import type { Experience } from "./types";
 
 export const experiences: Experience[] = [
-    {
-        company: "Nykaa",
+  {
+    company: "Nykaa",
 
-        role: "Senior Software Engineer",
+    role: "Software Engineer – 2",
 
-        period: "Present",
+    period: "Jan. 2025 — Present",
 
-        summary:
-            "Building scalable backend platforms for multi-tenant commerce systems across India and Middle East markets.",
+    highlights: [
+      "Designed and built a multi-tenant order orchestration platform processing 500K+ orders/day across India and Middle East markets, coordinating post-order workflows between OMS, warehouse management, and logistics systems through a hybrid synchronous and event-driven architecture.",
 
-        technologies: [
-            "Go",
-            "Java",
-            "AWS",
-            "Kafka",
-            "PostgreSQL",
-            "Microservices",
-        ],
+      "Designed and developed a scalable multi-tenant loyalty platform supporting omnichannel earn and redeem journeys across multiple business domains; leveraged domain-driven design and reusable microservice abstractions to reduce new business onboarding and integration time-to-market by 80%.",
 
-        highlights: [
-            {
-                title: "Post Order Platform",
+      "Led the rollout of standardized observability across 20+ microservices and AWS infrastructure, implementing OpenTelemetry-based observability, Grafana dashboards, alerting, and custom telemetry to improve production visibility, incident detection, and operational reliability.",
 
-                description:
-                    "Designed and built a multi-tenant order orchestration platform processing 500K+ orders/day across India and Middle East markets, coordinating post-order workflows between OMS, warehouse management, and logistics systems through a hybrid synchronous and event-driven architecture",
+      "Orchestrated the migration of 15+ backend microservices to a new AWS region and contributed to setting up parallel infrastructure for new business use cases. Reconfigured service-to-service dependencies, optimized CI/CD pipelines using Jenkins and GitHub Actions, and refactored codebases to align with updated business requirements.",
+    ],
 
-                impact: "Processes 500K+ orders daily",
+    technologies: [
+      "Go",
+      "Java",
+      "Kafka",
+      "AWS",
+      "OpenTelemetry",
+      "Grafana",
+    ],
+  },
 
-                featured: true,
-            },
+  {
+    company: "INDmoney",
 
-            {
-                title: "Multi-tenant Loyalty Platform",
+    role: "Software Engineer",
 
-                description:
-                    "Designed reusable domain abstractions for omnichannel earn and redeem workflows.",
+    period: "Jun. 2024 — Dec. 2024",
 
-                impact: "Reduced integration time by 80%",
+    highlights: [
+      "Revamped exchange onboarding workflows by automating account creation across multiple external systems through workflow orchestration and API integrations, reducing user onboarding time by 50%.",
 
-                featured: true,
-            },
+      "Designed and developed Go-based microservices leveraging Kafka, gRPC, and PostgreSQL to support high-performance financial workflows and inter-service communication.",
 
-            {
-                title: "Central Tenant Management",
+      "Developed a dynamic Help Centre for INDstocks featuring contextual nudges, targeted broadcast banners, and guided issue-resolution workflows, improving user communication, transaction success rates, and overall customer experience.",
+    ],
 
-                description:
-                    "Built a centralized source of truth for tenant metadata, configuration, mappings, and feature flags.",
+    technologies: [
+      "Go",
+      "Kafka",
+      "gRPC",
+      "PostgreSQL",
+      "Microservices",
+    ],
+  },
 
-                featured: false,
-            },
+  {
+    company: "Hella Infra Market",
 
-            {
-                title: "AWS Region Migration",
+    role: "Software Engineer (SDE 1 → SDE 2)",
 
-                description:
-                    "Migrated backend services and dependencies across AWS regions while improving deployment pipelines.",
+    period: "Jun. 2022 — May 2024",
 
-                impact: "15+ services migrated",
+    highlights: [
+      "Designed and led the development of an event-driven Ticket Management System processing 1,000+ tickets/day, streamlining post-sales operations and issue resolution across business functions.",
 
-                featured: false,
-            },
-        ],
-    },
+      "Architected and developed a centralized ERP platform supporting procurement, inventory, supply chain, and finance workflows, enabling operational visibility and process standardization across business units.",
 
-    {
-        company: "INDmoney",
+      "Developed a shared observability library adopted across 35+ microservices, standardizing metrics, traces, and logs integration with New Relic to improve monitoring, troubleshooting, and operational visibility.",
 
-        role: "Software Engineer",
+      "Enhanced the organization's Kafka platform library by introducing standardized retry and dead-letter queue (DLQ) mechanisms, improving reliability and resilience of asynchronous communication across 35+ microservices.",
+    ],
 
-        period: "Previous",
-
-        summary:
-            "Worked on investment platform workflows including exchange onboarding, financial reports, and customer assistance systems.",
-
-        technologies: [
-            "Go",
-            "Java",
-            "PostgreSQL",
-            "Redis",
-            "Docker",
-        ],
-
-        highlights: [
-            {
-                title: "Exchange Onboarding",
-
-                description:
-                    "Revamped onboarding workflows coordinating account creation across multiple downstream systems.",
-
-                impact: "Reduced onboarding time by 50%",
-
-                featured: true,
-            },
-
-            {
-                title: "Reports Platform",
-
-                description:
-                    "Built dividend and CMR reporting capabilities for investment users.",
-
-                featured: true,
-            },
-
-            {
-                title: "Help Centre",
-
-                description:
-                    "Developed dynamic nudges and broadcast communication capabilities.",
-
-                featured: false,
-            },
-        ],
-    },
-
-    {
-        company: "Infra.Market",
-
-        role: "Software Engineer",
-
-        period: "Previous",
-
-        summary:
-            "Built backend systems for enterprise operations, ticket management, ERP workflows, and shared observability infrastructure.",
-
-        technologies: [
-            "Go",
-            "Java",
-            "Kafka",
-            "PostgreSQL",
-            "Microservices",
-            "OpenTelemetry",
-        ],
-
-        highlights: [
-            {
-                title: "Ticket Management Platform",
-
-                description:
-                    "Built an event-driven ticket management system for handling operational workflows across teams.",
-
-                impact: "Handles 1,000+ tickets daily",
-
-                featured: true,
-            },
-
-            {
-                title: "Observability Platform",
-
-                description:
-                    "Built reusable observability capabilities for standardized telemetry and monitoring across backend services.",
-
-                impact: "Adopted by 35+ microservices",
-
-                featured: true,
-            },
-
-            {
-                title: "ERP Platform",
-
-                description:
-                    "Worked on backend workflows spanning procurement, inventory, supply chain, and finance operations.",
-
-                featured: false,
-            },
-        ],
-    },
+    technologies: [
+      "Go",
+      "Java",
+      "Kafka",
+      "New Relic",
+      "Microservices",
+      "Event-Driven Architecture",
+    ],
+  },
 ];

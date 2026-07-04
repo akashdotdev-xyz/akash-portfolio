@@ -1,17 +1,13 @@
 ---
-import {
-  experiences,
-} from "../content/experience";
+import { experiences } from "../content/experience";
 
-import ExperienceItem
-  from "../components/ExperienceItem.astro";
+import ExperienceItem from "../components/ExperienceItem.astro";
 ---
 
 <section
   id="experience"
   class="experience-section"
 >
-
   <div class="container">
 
     <div class="section-header">
@@ -26,13 +22,8 @@ import ExperienceItem
         </h2>
       </div>
 
-      <p>
-        Building backend platforms,
-        distributed systems, and cloud
-        infrastructure.
-      </p>
-
     </div>
+
 
     <div class="experience-list">
 
@@ -47,8 +38,8 @@ import ExperienceItem
     </div>
 
   </div>
-
 </section>
+
 
 <style>
   .experience-section {
@@ -56,15 +47,18 @@ import ExperienceItem
 
     background: var(--surface);
 
-    border-top:
-      1px solid var(--border);
-
-    border-bottom:
-      1px solid var(--border);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
   }
+
+
+  /* =========================
+     SECTION HEADER
+  ========================= */
 
   .section-header {
     display: flex;
+
     align-items: flex-end;
     justify-content: space-between;
 
@@ -86,6 +80,7 @@ import ExperienceItem
     margin: 8px 0 0;
 
     font-size: 2rem;
+    line-height: 1.2;
 
     letter-spacing: -0.04em;
   }
@@ -101,20 +96,64 @@ import ExperienceItem
     line-height: 1.6;
   }
 
+
+  /* =========================
+     EXPERIENCE LIST
+  ========================= */
+
   .experience-list {
-    max-width: 1000px;
+    width: 100%;
+    max-width: 960px;
+
+    margin-inline: auto;
   }
 
+
+  /* =========================
+     TABLET
+  ========================= */
+
   @media (max-width: 760px) {
+
     .experience-section {
       padding: 64px 0;
     }
 
     .section-header {
-      align-items: flex-start;
       flex-direction: column;
+      align-items: flex-start;
+
+      gap: 16px;
 
       margin-bottom: 40px;
+    }
+
+    .section-header p {
+      max-width: 520px;
+    }
+  }
+
+
+  /* =========================
+     MOBILE
+  ========================= */
+
+  @media (max-width: 520px) {
+
+    .experience-section {
+      padding: 56px 0;
+    }
+
+    .section-header {
+      margin-bottom: 32px;
+    }
+
+    h2 {
+      font-size: 1.7rem;
+    }
+
+    .section-header p {
+      font-size: 0.86rem;
     }
   }
 </style>
